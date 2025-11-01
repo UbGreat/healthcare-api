@@ -4,7 +4,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from './entities/user.entity';
+import { User, Role  } from './entities/user.entity';
 import { ObjectId } from 'mongodb'; // import this ObjectId from typeorm for other databasses like postgres
 
 @Injectable()
@@ -19,8 +19,13 @@ export class UsersService {
     return this.userRepository.save(newUser);
   }
 
-  findAll() {
-    return this.userRepository.find()
+ findAll(role?: Role): Promise<User[]> {
+    if (role) {
+      // Filter users by role
+      return this.userRepository.find({ where: { role } });
+    }
+    // Return all users if no role is specified
+    return this.userRepository.find();
   }
 
   findOne(id: string) {

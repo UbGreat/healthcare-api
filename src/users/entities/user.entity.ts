@@ -1,5 +1,21 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, ObjectId, ObjectIdColumn } from "typeorm";
+import { Column, Entity, ObjectIdColumn } from "typeorm";
+import { ObjectId } from 'mongodb';
+
+export enum Role {
+  PATIENT = 'PATIENT',
+  CARE_GIVER = 'CARE_GIVER',
+  NURSE = 'NURSE',
+  LAB_SCIENTIST = 'LAB_SCIENTIST',
+  PHARMACIST = 'PHARMACIST',
+  SUPPLIER = 'SUPPLIER',
+  GUARDIAN = 'GUARDIAN',
+  DOCTOR = 'DOCTOR',
+  ADMIN = 'ADMIN',
+  SUPER_ADMIN = 'SUPER_ADMIN',
+}
+
+
 
 @Entity()
 export class User {
@@ -13,7 +29,7 @@ export class User {
     @Column()
     email: string;
     
-    @Column()
-    role: string;
+    @Column({ enum: Role })
+    role: Role;
 
 }
