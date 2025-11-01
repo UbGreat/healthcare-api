@@ -14,6 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       url: "mongodb+srv://ubohodickson_db_user:ii1NPEhMy0RnxIbT@cluster0.yqn2b5h.mongodb.net/?appName=Cluster0",
       synchronize: true,
       entities: [User],
+      ssl:true
 
   })
 ],
