@@ -11,10 +11,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     UsersModule, 
     TypeOrmModule.forRoot({
       type: "mongodb",
-      url: "mongodb+srv://ubohodickson_db_user:ii1NPEhMy0RnxIbT@cluster0.yqn2b5h.mongodb.net/?appName=Cluster0",
+      url: process.env.MONGODB_URI,
       synchronize: true,
       entities: [User],
-      ssl:true
+      ssl: true,
+      autoLoadEntities: true,
 
   })
 ],
