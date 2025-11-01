@@ -11,7 +11,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     UsersModule, 
     TypeOrmModule.forRoot({
       type: "mongodb",
-      url: process.env.MONGODB_URI,
+      url: "mongodb+srv://ubohodickson_db_user:tHAGgOQB2fBxjbHK@cluster0.nwfqmug.mongodb.net/?appName=Cluster0",
       synchronize: true,
       entities: [User],
       ssl: true,

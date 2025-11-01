@@ -1,6 +1,8 @@
-<p align="center">
-  <
+
 ## Description
 
 db_user: ubohodickson_db_user
-password: ii1NPEhMy0RnxIbT
+password: tHAGgOQB2fBxjbHK
+
+
+mongodb+srv://ubohodickson_db_user:tHAGgOQB2fBxjbHK@cluster0.nwfqmug.mongodb.net/?appName=Cluster0
