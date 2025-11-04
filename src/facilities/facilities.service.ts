@@ -3,13 +3,13 @@ import { CreateFacilityDto } from './dto/create-facility.dto';
 import { UpdateFacilityDto } from './dto/update-facility.dto';
 
 @Injectable()
-export class FacilitysService {
+export class FacilitiesService {
   create(createFacilityDto: CreateFacilityDto) {
     return 'This action adds a new facility';
   }
 
   findAll() {
-    return `This action returns all facilitys`;
+    return `This action returns all facilities`;
   }
 
   findOne(id: number) {

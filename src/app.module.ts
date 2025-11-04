@@ -6,12 +6,12 @@ import { UsersModule } from './users/users.module';
 import { EhrsModule } from './ehrs/ehrs.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { OrganizationsModule } from './organizations/organizations.module';
-import { FacilitysModule } from './facilitys/facilitys.module';
-import { PatientsModule } from './patients/patients.module';
-import { DevicesModule } from './devices/devices.module';
-import { TelemetrysModule } from './telemetrys/telemetrys.module';
 import { AlertsModule } from './alerts/alerts.module';
 import { IncidentsModule } from './incidents/incidents.module';
+import { FacilitiesModule } from './facilities/facilities.module';
+import { DevicesModule } from './devices/devices.module';
+import { PatientsModule } from './patients/patients.module';
+import { TelemetriesModule } from './telemetries/telemetries.module';
 
 
 @Module({
@@ -21,12 +21,12 @@ import { IncidentsModule } from './incidents/incidents.module';
   UsersModule,
   EhrsModule,
   OrganizationsModule,
-  FacilitysModule,
   PatientsModule,
-  DevicesModule,
-  TelemetrysModule,
   AlertsModule,
-  IncidentsModule
+  IncidentsModule,
+  FacilitiesModule,
+  DevicesModule,
+  TelemetriesModule
 ],
   controllers: [AppController],
   providers: [AppService],

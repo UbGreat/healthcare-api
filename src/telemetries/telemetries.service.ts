@@ -3,13 +3,13 @@ import { CreateTelemetryDto } from './dto/create-telemetry.dto';
 import { UpdateTelemetryDto } from './dto/update-telemetry.dto';
 
 @Injectable()
-export class TelemetrysService {
+export class TelemetriesService {
   create(createTelemetryDto: CreateTelemetryDto) {
     return 'This action adds a new telemetry';
   }
 
   findAll() {
-    return `This action returns all telemetrys`;
+    return `This action returns all telemetries`;
   }
 
   findOne(id: number) {
