@@ -5,6 +5,7 @@ import { Model } from 'mongoose';
 import { User } from './schemas/user.schema';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import * as bcrypt from "bcrypt"
 
 @Injectable()
 export class UsersService {
@@ -15,6 +16,7 @@ export class UsersService {
 
   // 🧍 Create a new user
   async create(createUserDto: CreateUserDto): Promise<User> {
+    
     const newUser = new this.userModel(createUserDto);
     return newUser.save();
   }
@@ -38,6 +40,11 @@ export class UsersService {
       .exec();
     if (!updatedUser) throw new NotFoundException('User not found');
     return updatedUser;
+  }
+
+  // finduser by email
+  async findByEmail(email: string) {
+    return this.userModel.findOne({ email }).exec();
   }
 
   // ❌ Delete a user

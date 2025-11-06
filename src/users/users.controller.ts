@@ -6,11 +6,15 @@ import {
   Body, 
   Param, 
   Patch, 
-  Delete 
+  Delete,
+  UseGuards,
+   Request
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { JwtAuthGuard } from '../commons/guards/jwt-auth.guards';
+
 
 @Controller('users')
 export class UsersController {
@@ -23,6 +27,7 @@ export class UsersController {
   }
 
   // 📋 Get all users
+  @UseGuards(JwtAuthGuard)
   @Get()
   async findAll() {
     return this.usersService.findAll();

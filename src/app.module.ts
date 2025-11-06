@@ -12,12 +12,15 @@ import { FacilitiesModule } from './facilities/facilities.module';
 import { DevicesModule } from './devices/devices.module';
 import { PatientsModule } from './patients/patients.module';
 import { TelemetriesModule } from './telemetries/telemetries.module';
+import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
+import appConfig from 'config/app.config';
 
 
 @Module({
   imports: [
-    UsersModule, 
-   MongooseModule.forRoot('mongodb+srv://ubohodickson_db_user:tHAGgOQB2fBxjbHK@cluster0.nwfqmug.mongodb.net/?appName=Cluster0'),
+  UsersModule, 
+  MongooseModule.forRoot('mongodb+srv://ubohodickson_db_user:tHAGgOQB2fBxjbHK@cluster0.nwfqmug.mongodb.net/?appName=Cluster0'),
   UsersModule,
   EhrsModule,
   OrganizationsModule,
@@ -26,7 +29,13 @@ import { TelemetriesModule } from './telemetries/telemetries.module';
   IncidentsModule,
   FacilitiesModule,
   DevicesModule,
-  TelemetriesModule
+  TelemetriesModule,
+  AuthModule,
+  // ✅ Loads environment variables + config
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [appConfig],
+    }),
 ],
   controllers: [AppController],
   providers: [AppService],
